@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3424.Minimum%20Cost%20to%20Make%20Arrays%20Identical/README_EN.md
+rating: 1502
+source: Biweekly Contest 148 Q2
+tags:
+    - Greedy
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->
@@ -73,7 +79,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3424.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+If splitting the array is not allowed, we can directly calculate the sum of absolute differences between the two arrays as the total cost $c_1$. If splitting is allowed, we can divide the array $\textit{arr}$ into $n$ subarrays of length 1, then rearrange them in any order, and compare with array $\textit{brr}$, calculating the sum of absolute differences as the total cost $c_2$. To minimize $c_2$, we can sort both arrays and then calculate the sum of absolute differences. The final result is $\min(c_1, c_2 + k)$.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -174,6 +184,29 @@ function minCost(arr: number[], brr: number[], k: number): number {
     brr.sort((a, b) => a - b);
     const c2 = calc(arr, brr) + k;
     return Math.min(c1, c2);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_cost(mut arr: Vec<i32>, mut brr: Vec<i32>, k: i64) -> i64 {
+        let c1: i64 = arr.iter()
+            .zip(&brr)
+            .map(|(a, b)| (*a - *b).abs() as i64)
+            .sum();
+
+        arr.sort_unstable();
+        brr.sort_unstable();
+
+        let c2: i64 = k + arr.iter()
+            .zip(&brr)
+            .map(|(a, b)| (*a - *b).abs() as i64)
+            .sum::<i64>();
+
+        c1.min(c2)
+    }
 }
 ```
 

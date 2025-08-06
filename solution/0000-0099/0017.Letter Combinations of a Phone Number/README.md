@@ -22,7 +22,7 @@ tags:
 
 <p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/images/200px-telephone-keypad2svg.png" style="width: 200px;" /></p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/images/1752723054-mfIHZs-image.png" style="width: 200px;" /></p>
 
 <p>&nbsp;</p>
 
@@ -552,6 +552,48 @@ class Solution {
             backtrack($digits, $current . $letter, $index + 1, $digitMap, $combinations);
         }
     }
+}
+```
+
+#### C
+
+```c
+char* d[] = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+char** letterCombinations(char* digits, int* returnSize) {
+    if (!*digits) {
+        *returnSize = 0;
+        return NULL;
+    }
+
+    int size = 1;
+    char** ans = (char**) malloc(sizeof(char*));
+    ans[0] = strdup("");
+
+    for (int x = 0; digits[x]; ++x) {
+        char* s = d[digits[x] - '2'];
+        int len = strlen(s);
+        char** t = (char**) malloc(sizeof(char*) * size * len);
+        int tSize = 0;
+
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < len; ++j) {
+                int oldLen = strlen(ans[i]);
+                char* tmp = (char*) malloc(oldLen + 2);
+                strcpy(tmp, ans[i]);
+                tmp[oldLen] = s[j];
+                tmp[oldLen + 1] = '\0';
+                t[tSize++] = tmp;
+            }
+            free(ans[i]);
+        }
+        free(ans);
+        ans = t;
+        size = tSize;
+    }
+
+    *returnSize = size;
+    return ans;
 }
 ```
 

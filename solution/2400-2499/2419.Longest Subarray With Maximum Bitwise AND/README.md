@@ -52,7 +52,7 @@ tags:
 <strong>输入：</strong>nums = [1,2,3,4]
 <strong>输出：</strong>1
 <strong>解释：</strong>
-子数组按位与运算的最大值是 4 。
+子数组按位与运算的最大值是 4 。 
 能得到此结果的最长子数组是 [4]，所以返回 1 。
 </pre>
 
@@ -215,6 +215,51 @@ var longestSubarray = function (nums) {
     }
     return ans;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int LongestSubarray(int[] nums) {
+        int mx = nums.Max();
+        int ans = 0, cnt = 0;
+        foreach (int x in nums) {
+            if (x == mx) {
+                ans = Math.Max(ans, ++cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function longestSubarray($nums) {
+        $mx = max($nums);
+        $ans = 0;
+        $cnt = 0;
+
+        foreach ($nums as $x) {
+            if ($x == $mx) {
+                $ans = max($ans, ++$cnt);
+            } else {
+                $cnt = 0;
+            }
+        }
+
+        return $ans;
+    }
+}
 ```
 
 <!-- tabs:end -->

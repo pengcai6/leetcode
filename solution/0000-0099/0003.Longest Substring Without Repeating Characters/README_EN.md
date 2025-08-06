@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Given a string <code>s</code>, find the length of the <strong>longest</strong> <span data-keyword="substring-nonempty"><strong>substring</strong></span> without repeating characters.</p>
+<p>Given a string <code>s</code>, find the length of the <strong>longest</strong> <span data-keyword="substring-nonempty"><strong>substring</strong></span> without duplicate characters.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -295,6 +295,33 @@ class Solution {
         }
         return ans
     }
+}
+```
+
+#### C
+
+```c
+int lengthOfLongestSubstring(char* s) {
+    int freq[256] = {0};
+    int l = 0, r = 0;
+    int ans = 0;
+    int len = strlen(s);
+
+    for (r = 0; r < len; r++) {
+        char c = s[r];
+        freq[(unsigned char) c]++;
+
+        while (freq[(unsigned char) c] > 1) {
+            freq[(unsigned char) s[l]]--;
+            l++;
+        }
+
+        if (ans < r - l + 1) {
+            ans = r - l + 1;
+        }
+    }
+
+    return ans;
 }
 ```
 

@@ -30,7 +30,7 @@ tags:
 
 <p>Return <em>the <strong>minimum</strong> possible total number of stones remaining after applying the </em><code>k</code><em> operations</em>.</p>
 
-<p><code>floor(x)</code> is the <b>greatest</b> integer that is <strong>smaller</strong> than or <strong>equal</strong> to <code>x</code> (i.e., rounds <code>x</code> down).</p>
+<p><code>floor(x)</code> is the <strong>largest</strong>&nbsp;integer that is <strong>smaller</strong> than or <strong>equal</strong> to <code>x</code> (i.e., rounds <code>x</code>&nbsp;down).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -178,15 +178,14 @@ func (h *hp) pop() int   { return heap.Pop(h).(int) }
 
 ```ts
 function minStoneSum(piles: number[], k: number): number {
-    const pq = new MaxPriorityQueue();
+    const pq = new MaxPriorityQueue<number>();
     for (const x of piles) {
         pq.enqueue(x);
     }
     while (k--) {
-        pq.enqueue((pq.dequeue().element + 1) >> 1);
+        pq.enqueue((pq.dequeue() + 1) >> 1);
     }
-
-    return pq.toArray().reduce((a, b) => a + b.element, 0);
+    return pq.toArray().reduce((a, b) => a + b, 0);
 }
 ```
 

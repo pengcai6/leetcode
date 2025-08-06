@@ -2,6 +2,14 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3425.Longest%20Special%20Path/README.md
+rating: 2434
+source: 第 148 场双周赛 Q3
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 前缀和
 ---
 
 <!-- problem:start -->

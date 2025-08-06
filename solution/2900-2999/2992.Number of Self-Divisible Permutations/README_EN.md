@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2992.Nu
 tags:
     - Bit Manipulation
     - Array
+    - Math
     - Dynamic Programming
     - Backtracking
     - Bitmask
+    - Number Theory
 ---
 
 <!-- problem:start -->
@@ -106,7 +108,7 @@ class Solution:
                 return 1
             ans = 0
             for j in range(1, n + 1):
-                if (mask >> j & 1) == 0 and (i % j == 0 or j % i == 0):
+                if (mask >> j & 1) == 0 and gcd(i, j) == 1:
                     ans += dfs(mask | 1 << j)
             return ans
 
@@ -265,7 +267,7 @@ class Solution:
         for mask in range(1 << n):
             i = mask.bit_count()
             for j in range(1, n + 1):
-                if (mask >> (j - 1) & 1) == 1 and (i % j == 0 or j % i == 0):
+                if (mask >> (j - 1) & 1) == 1 and gcd(i, j) == 1:
                     f[mask] += f[mask ^ (1 << (j - 1))]
         return f[-1]
 ```

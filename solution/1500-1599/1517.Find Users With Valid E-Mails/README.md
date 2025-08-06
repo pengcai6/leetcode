@@ -37,7 +37,7 @@ user_id 是该表的主键（具有唯一值的列）。
 <p>一个有效的电子邮件具有前缀名称和域，其中：</p>
 
 <ol>
-	<li>&nbsp;<strong>前缀</strong> 名称是一个字符串，可以包含字母（大写或小写），数字，下划线 <code>'_'</code> ，点 <code>'.'</code> 和/或破折号 <code>'-'</code> 。前缀名称 <strong>必须</strong> 以字母开头。</li>
+	<li>&nbsp;<strong>前缀</strong> 名称是一个字符串，可以包含字母（大写或小写），数字，下划线 <code>'_'</code> ，点 <code>'.'</code> 和（或）破折号 <code>'-'</code> 。前缀名称 <strong>必须</strong> 以字母开头。</li>
 	<li><strong>域</strong> 为 <code>'@leetcode.com'</code> 。</li>
 </ol>
 
@@ -86,6 +86,8 @@ Users 表:
 
 ### 方法一：REGEXP 正则匹配
 
+我们可以使用正则表达式来匹配有效的电子邮件格式。正则表达式可以确保前缀名称符合要求，并且域名是固定的 `@leetcode.com`。
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -94,7 +96,19 @@ Users 表:
 # Write your MySQL query statement below
 SELECT *
 FROM Users
-WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$';
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\\.com$' AND BINARY mail LIKE '%@leetcode.com';
+```
+
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    pattern = r"^[A-Za-z][A-Za-z0-9_.-]*@leetcode\.com$"
+    mask = users["mail"].str.match(pattern, flags=0, na=False)
+    return users.loc[mask, ["user_id", "name", "mail"]]
 ```
 
 <!-- tabs:end -->

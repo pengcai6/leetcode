@@ -21,7 +21,7 @@ tags:
 
 <p>There are <code>n</code> cars at given miles away from the starting mile 0, traveling to reach the mile <code>target</code>.</p>
 
-<p>You are given two integer array <code>position</code> and <code>speed</code>, both of length <code>n</code>, where <code>position[i]</code> is the starting mile of the <code>i<sup>th</sup></code> car and <code>speed[i]</code> is the speed of the <code>i<sup>th</sup></code> car in miles per hour.</p>
+<p>You are given two integer arrays&nbsp;<code>position</code> and <code>speed</code>, both of length <code>n</code>, where <code>position[i]</code> is the starting mile of the <code>i<sup>th</sup></code> car and <code>speed[i]</code> is the speed of the <code>i<sup>th</sup></code> car in miles per hour.</p>
 
 <p>A car cannot pass another car, but it can catch up and then travel next to it at the speed of the slower car.</p>
 
@@ -117,9 +117,7 @@ class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
         int n = position.length;
         Integer[] idx = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            idx[i] = i;
-        }
+        Arrays.setAll(idx, i -> i);
         Arrays.sort(idx, (i, j) -> position[j] - position[i]);
         int ans = 0;
         double pre = 0;

@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3423.Maximum%20Difference%20Between%20Adjacent%20Elements%20in%20a%20Circular%20Array/README.md
+rating: 1184
+source: 第 148 场双周赛 Q1
+tags:
+    - 数组
 ---
 
 <!-- problem:start -->
@@ -72,7 +76,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3423.Ma
 ```python
 class Solution:
     def maxAdjacentDistance(self, nums: List[int]) -> int:
-        return max(max(abs(a - b) for a, b in pairwise(nums)), abs(nums[0] - nums[-1]))
+        return max(abs(a - b) for a, b in pairwise(nums + [nums[0]]))
 ```
 
 #### Java
@@ -134,6 +138,36 @@ function maxAdjacentDistance(nums: number[]): number {
         ans = Math.max(ans, Math.abs(nums[i] - nums[i - 1]));
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_adjacent_distance(nums: Vec<i32>) -> i32 {
+        nums.iter()
+            .zip(nums.iter().cycle().skip(1))
+            .take(nums.len())
+            .map(|(a, b)| (*a - *b).abs())
+            .max()
+            .unwrap_or(0)
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxAdjacentDistance(int[] nums) {
+        int n = nums.Length;
+        int ans = Math.Abs(nums[0] - nums[n - 1]);
+        for (int i = 1; i < n; ++i) {
+            ans = Math.Max(ans, Math.Abs(nums[i] - nums[i - 1]));
+        }
+        return ans;
+    }
 }
 ```
 

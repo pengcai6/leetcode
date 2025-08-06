@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1062. 最长重复子串 🔒](https://leetcode.cn/problems/longest-repeating-substring)
+# [1062. 最长重复子串的长度 🔒](https://leetcode.cn/problems/longest-repeating-substring)
 
 [English Version](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README_EN.md)
 
@@ -66,20 +66,21 @@ tags:
 
 ### 方法一：动态规划
 
-定义 $dp[i][j]$ 表示以 $s[i]$ 和 $s[j]$ 结尾的最长重复子串 🔒 的长度。状态转移方程为：
+我们定义 $f[i][j]$ 表示以 $s[i]$ 和 $s[j]$ 结尾的最长重复子串的长度，初始时 $f[i][j]=0$。
+
+我们在 $[1, n)$ 的区间内枚举 $i$，在 $[0, i)$ 的区间内枚举 $j$，如果 $s[i]=s[j]$，那么有：
 
 $$
-dp[i][j]=
+f[i][j]=
 \begin{cases}
-dp[i-1][j-1]+1, & i>0 \cap s[i]=s[j] \\
-1, & i=0 \cap s[i]=s[j] \\
-0, &  s[i] \neq s[j]
+f[i-1][j-1]+1, & j>0 \\
+1, & j=0
 \end{cases}
 $$
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。
+我们求出所有 $f[i][j]$ 的最大值即为答案。
 
-其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为字符串 $s$ 的长度。
 
 相似题目：
 
@@ -93,13 +94,13 @@ $$
 class Solution:
     def longestRepeatingSubstring(self, s: str) -> int:
         n = len(s)
-        dp = [[0] * n for _ in range(n)]
+        f = [[0] * n for _ in range(n)]
         ans = 0
-        for i in range(n):
-            for j in range(i + 1, n):
+        for i in range(1, n):
+            for j in range(i):
                 if s[i] == s[j]:
-                    dp[i][j] = dp[i - 1][j - 1] + 1 if i else 1
-                    ans = max(ans, dp[i][j])
+                    f[i][j] = 1 + (f[i - 1][j - 1] if j else 0)
+                    ans = max(ans, f[i][j])
         return ans
 ```
 
@@ -109,13 +110,13 @@ class Solution:
 class Solution {
     public int longestRepeatingSubstring(String s) {
         int n = s.length();
+        int[][] f = new int[n][n];
         int ans = 0;
-        int[][] dp = new int[n][n];
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
                 if (s.charAt(i) == s.charAt(j)) {
-                    dp[i][j] = i > 0 ? dp[i - 1][j - 1] + 1 : 1;
-                    ans = Math.max(ans, dp[i][j]);
+                    f[i][j] = 1 + (j > 0 ? f[i - 1][j - 1] : 0);
+                    ans = Math.max(ans, f[i][j]);
                 }
             }
         }
@@ -130,14 +131,15 @@ class Solution {
 class Solution {
 public:
     int longestRepeatingSubstring(string s) {
-        int n = s.size();
-        vector<vector<int>> dp(n, vector<int>(n));
+        int n = s.length();
+        int f[n][n];
+        memset(f, 0, sizeof(f));
         int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
                 if (s[i] == s[j]) {
-                    dp[i][j] = i ? dp[i - 1][j - 1] + 1 : 1;
-                    ans = max(ans, dp[i][j]);
+                    f[i][j] = 1 + (j > 0 ? f[i - 1][j - 1] : 0);
+                    ans = max(ans, f[i][j]);
                 }
             }
         }
@@ -149,26 +151,66 @@ public:
 #### Go
 
 ```go
-func longestRepeatingSubstring(s string) int {
+func longestRepeatingSubstring(s string) (ans int) {
 	n := len(s)
-	dp := make([][]int, n)
-	for i := range dp {
-		dp[i] = make([]int, n)
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
 	}
-	ans := 0
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
+	for i := 1; i < n; i++ {
+		for j := 0; j < i; j++ {
 			if s[i] == s[j] {
-				if i == 0 {
-					dp[i][j] = 1
-				} else {
-					dp[i][j] = dp[i-1][j-1] + 1
+				if j > 0 {
+					f[i][j] = f[i-1][j-1]
 				}
-				ans = max(ans, dp[i][j])
+				f[i][j]++
+				ans = max(ans, f[i][j])
 			}
 		}
 	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function longestRepeatingSubstring(s: string): number {
+    const n = s.length;
+    const f: number[][] = Array.from({ length: n }).map(() => Array(n).fill(0));
+    let ans = 0;
+    for (let i = 1; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (s[i] === s[j]) {
+                f[i][j] = 1 + (f[i - 1][j - 1] || 0);
+                ans = Math.max(ans, f[i][j]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_repeating_substring(s: String) -> i32 {
+        let n = s.len();
+        let mut f = vec![vec![0; n]; n];
+        let mut ans = 0;
+        let s = s.as_bytes();
+
+        for i in 1..n {
+            for j in 0..i {
+                if s[i] == s[j] {
+                    f[i][j] = if j > 0 { f[i - 1][j - 1] + 1 } else { 1 };
+                    ans = ans.max(f[i][j]);
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
