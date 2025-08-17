@@ -3656,6 +3656,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3645  |  [Maximum Total from Optimal Activation Order](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README_EN.md)  |    |  Medium  |  Weekly Contest 462  |
 |  3646  |  [Next Special Palindrome Number](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README_EN.md)  |    |  Hard  |  Weekly Contest 462  |
 |  3647  |  [Maximum Weight in Two Bags](/solution/3600-3699/3647.Maximum%20Weight%20in%20Two%20Bags/README_EN.md)  |    |  Medium  |  🔒  |
+|  3648  |  [Minimum Sensors to Cover Grid](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 163  |
+|  3649  |  [Number of Perfect Pairs](/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README_EN.md)  |    |  Medium  |  Biweekly Contest 163  |
+|  3650  |  [Minimum Cost Path with Edge Reversals](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README_EN.md)  |    |  Medium  |  Biweekly Contest 163  |
+|  3651  |  [Minimum Cost Path with Teleportations](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README_EN.md)  |    |  Hard  |  Biweekly Contest 163  |
+|  3652  |  [Best Time to Buy and Sell Stock using Strategy](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README_EN.md)  |    |  Medium  |  Weekly Contest 463  |
+|  3653  |  [XOR After Range Multiplication Queries I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 463  |
+|  3654  |  [Minimum Sum After Divisible Sum Deletions](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md)  |    |  Medium  |  Weekly Contest 463  |
+|  3655  |  [XOR After Range Multiplication Queries II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 463  |
 
 ## Copyright
 

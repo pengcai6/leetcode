@@ -3658,6 +3658,14 @@
 |  3645  |  [最优激活顺序得到的最大总和](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README.md)  |    |  中等  |  第 462 场周赛  |
 |  3646  |  [下一个特殊回文数](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README.md)  |    |  困难  |  第 462 场周赛  |
 |  3647  |  [两个袋子中的最大重量](/solution/3600-3699/3647.Maximum%20Weight%20in%20Two%20Bags/README.md)  |    |  中等  |  🔒  |
+|  3648  |  [覆盖网格的最少传感器数目](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README.md)  |    |  中等  |  第 163 场双周赛  |
+|  3649  |  [完美对的数目](/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README.md)  |    |  中等  |  第 163 场双周赛  |
+|  3650  |  [边反转的最小路径总成本](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README.md)  |    |  中等  |  第 163 场双周赛  |
+|  3651  |  [带传送的最小路径成本](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README.md)  |    |  困难  |  第 163 场双周赛  |
+|  3652  |  [按策略买卖股票的最佳时机](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README.md)  |    |  中等  |  第 463 场周赛  |
+|  3653  |  [区间乘法查询后的异或 I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README.md)  |    |  中等  |  第 463 场周赛  |
+|  3654  |  [删除可整除和后的最小数组和](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README.md)  |    |  中等  |  第 463 场周赛  |
+|  3655  |  [区间乘法查询后的异或 II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README.md)  |    |  困难  |  第 463 场周赛  |
 
 ## 版权
 
