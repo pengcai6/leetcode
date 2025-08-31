@@ -3673,6 +3673,15 @@
 |  3660  |  [跳跃游戏 IX](/solution/3600-3699/3660.Jump%20Game%20IX/README.md)  |    |  中等  |  第 464 场周赛  |
 |  3661  |  [可以被机器人摧毁的最大墙壁数目](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README.md)  |    |  困难  |  第 464 场周赛  |
 |  3662  |  [按频率筛选字符](/solution/3600-3699/3662.Filter%20Characters%20by%20Frequency/README.md)  |    |  简单  |  🔒  |
+|  3663  |  [出现频率最低的数字](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README.md)  |    |  简单  |  第 164 场双周赛  |
+|  3664  |  [两个字母卡牌游戏](/solution/3600-3699/3664.Two-Letter%20Card%20Game/README.md)  |    |  中等  |  第 164 场双周赛  |
+|  3665  |  [统计镜子反射路径数目](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README.md)  |    |  中等  |  第 164 场双周赛  |
+|  3666  |  [使二进制字符串全为 1 的最少操作次数](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README.md)  |    |  困难  |  第 164 场双周赛  |
+|  3667  |  [Sort Array By Absolute Value](/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README.md)  |    |  简单  |  🔒  |
+|  3668  |  [重排完成顺序](/solution/3600-3699/3668.Restore%20Finishing%20Order/README.md)  |    |  简单  |  第 465 场周赛  |
+|  3669  |  [K 因数分解](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README.md)  |    |  中等  |  第 465 场周赛  |
+|  3670  |  [没有公共位的整数最大乘积](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README.md)  |    |  中等  |  第 465 场周赛  |
+|  3671  |  [子序列美丽值求和](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README.md)  |    |  困难  |  第 465 场周赛  |
 
 ## 版权
 
